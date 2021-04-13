@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelUserStore">
+    <attachedFolders />
+    <explicitIncludes>
+      <Path>C:/Program Files/Unity/Hub/Editor/2019.4.16f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.modules.imgui</Path>
+      <Path>Library/PackageCache/com.unity.collab-proxy@1.2.16</Path>
+      <Path>Library/PackageCache/com.unity.ext.nunit@1.0.5</Path>
+      <Path>Library/PackageCache/com.unity.ide.rider@1.1.4</Path>
+      <Path>Library/PackageCache/com.unity.ide.vscode@1.2.3</Path>
+      <Path>Library/PackageCache/com.unity.test-framework@1.1.19</Path>
+      <Path>Library/PackageCache/com.unity.textmeshpro@2.0.1</Path>
+      <Path>Library/PackageCache/com.unity.timeline@1.2.10</Path>
+      <Path>Packages</Path>
+      <Path>ProjectSettings</Path>
+    </explicitIncludes>
+    <explicitExcludes>
+      <Path>.idea</Path>
+      <Path>.vs</Path>
+      <Path>.vscode</Path>
+      <Path>GameData</Path>
+      <Path>Library</Path>
+      <Path>Logs</Path>
+      <Path>Temp</Path>
+      <Path>UIElementsSchema</Path>
+      <Path>obj</Path>
+    </explicitExcludes>
+  </component>
+</project>
