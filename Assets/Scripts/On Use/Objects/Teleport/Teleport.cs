@@ -17,11 +17,22 @@ public class Teleport : MonoBehaviour
 
     //public Camera CameraThatFollowThePlayer;
 
-    public void TeleportPlayer(Transform playerPosition)
-    {
+    public void TeleportPlayer(Transform playerPosition) {
         Debug.LogWarning($"Teleporting Player to position : X {teleportLocation.x} Y : {teleportLocation.y}");
         if (particleSystem == null)
         {
+            Debug.LogError(newRegion.name);
+            if (newRegion.name == "Map02")
+            {
+                SystemVariables.playerData.ZoneName = "MapZone2";
+                playerPosition.gameObject.GetComponent<PlayerMovement>().hpBar.value = playerPosition.gameObject.GetComponent<PlayerMovement>().hpBar.maxValue;
+            }
+            if (newRegion.name == "Harta")
+            {
+                SystemVariables.playerData.ZoneName = "MapZone1";
+                playerPosition.gameObject.GetComponent<PlayerMovement>().hpBar.value = playerPosition.gameObject.GetComponent<PlayerMovement>().hpBar.maxValue;
+            }
+
             newRegion.SetActive(true);
             playerPosition.position = new Vector3(teleportLocation.x, teleportLocation.y, playerPosition.position.z);
             currentRegion.SetActive(false);
@@ -35,8 +46,7 @@ public class Teleport : MonoBehaviour
         StartCoroutine(teleport(playerPosition, newCamera, currentCamera, teleportDelay));
     }
 
-    IEnumerator teleport(Transform playerPosition, Camera newCamera, Camera current, float seconds)
-    {
+    IEnumerator teleport(Transform playerPosition, Camera newCamera, Camera current, float seconds) {
 
         particleSystem.transform.position = new Vector3(playerPosition.position.x, playerPosition.position.y, particleSystem.transform.position.z);
         yield return particleSystem.startSpeed = -16;
@@ -48,6 +58,8 @@ public class Teleport : MonoBehaviour
             current.gameObject.SetActive(false);
             newCamera.gameObject.SetActive(true);
         }
+
+
         newRegion.SetActive(true);
         playerPosition.position = new Vector3(teleportLocation.x, teleportLocation.y, playerPosition.position.z);
         currentRegion.SetActive(false);

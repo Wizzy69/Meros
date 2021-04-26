@@ -5401,7 +5401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progressBar: {fileID: 1906137216}
-  sceneIndex: 2
+  LoadSceneIndex: 2
 --- !u!1 &1906137214
 GameObject:
   m_ObjectHideFlags: 0

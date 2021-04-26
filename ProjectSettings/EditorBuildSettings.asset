@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MapZone1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/MapZone2.unity
+    guid: 427288134fac390448467d0681e5a761
+  - enabled: 1
+    path: Assets/Scenes/MapZone2_Secret Room.unity
+    guid: 933876a675de77947966e60dde27560c
   m_configObjects: {}

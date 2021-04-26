@@ -4,52 +4,54 @@ using System.Collections.Generic;
 [Serializable]
 public class PlayerData
 {
-	#region Achievements
+    #region Achievements
 
-	public List<string> achievements;
+    public List<string> achievements;
 
-	#endregion
+    #endregion
 
-	#region Bosses
+    #region Bosses
 
-	public bool boss01_killed;
+    public bool boss01_killed;
 
-	#endregion
-
-
-	#region Functions
-
-	public bool HasErrorOnLoad()
-	{
-		if (achievements == null || oneTimeDialogues == null)
-			return true;
-		return false;
-	}
-
-	#endregion
-
-	#region Player Data Variables
-
-	public bool chest1Opened;
-	public bool chest2Opened;
-	public bool chest3Opened;
-	public int  damagePotions;
+    #endregion
 
 
-	public bool firstStory;
-	public int  healingPotions;
+    #region Functions
 
-	public float HP;
+    public bool HasErrorOnLoad() {
+        if (achievements == null || oneTimeDialogues == null)
+            return true;
+        return false;
+    }
 
-	public bool isBoss;
+    #endregion
 
-	public float money;
+    #region Player Data Variables
 
-	public Dictionary<Dialogue, bool> oneTimeDialogues;
-	public int                        speedPotions;
-	public float                      X;
-	public float                      Y;
-	public float                      Z;
+    public bool chest1Opened;
+    public bool chest2Opened;
+    public bool chest3Opened;
+    public bool chestHiddenOpened;
+    public int damagePotions;
 
-	#endregion
+
+    public bool firstStory;
+    public int healingPotions;
+
+    public float HP;
+
+    public bool isBoss;
+
+    public float money;
+
+    public Dictionary<Dialogue, bool> oneTimeDialogues;
+    public int speedPotions;
+    public float X;
+    public float Y;
+    public float Z;
+
+    public string ZoneName;
+
+    #endregion
 }
