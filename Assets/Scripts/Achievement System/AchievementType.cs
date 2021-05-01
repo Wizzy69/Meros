@@ -1,5 +1,6 @@
 ﻿public enum AchievementType
 {
-	KillMonster,
-	CollideWithObject
+    KillMonster,
+    CollideWithObject,
+    Loot
 }

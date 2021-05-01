@@ -8,13 +8,6 @@ using Random = UnityEngine.Random;
 
 public class Spawner : MonoBehaviour
 {
-
-    public static Spawner instance;
-    private void Awake() {
-        if (instance != null) return;
-        instance = this;
-    }
-
     public Transform parent;
 
     public GameObject[] monsters;
@@ -26,9 +19,13 @@ public class Spawner : MonoBehaviour
     public float mapTop;
 
     private float Z_Coord = 0f;
-    [HideInInspector] public float monsterCounter = 0f;
+    private List<GameObject> monstersSpawned;
+
+    public float monsterCounter = 0f;
 
     private void Start() {
+        monstersSpawned = new List<GameObject>();
+        monsterCounter = 0f;
         InvokeRepeating("CalculateRandomData", 0f, SpawnDelay);
     }
 
@@ -51,6 +48,7 @@ public class Spawner : MonoBehaviour
 
         mob.SetActive(true);
 
+        monstersSpawned.Add(mob);
         monsterCounter += 1f;
     }
 
@@ -61,5 +59,13 @@ public class Spawner : MonoBehaviour
         Gizmos.DrawLine(new Vector2(mapRight, mapTop), new Vector2(mapRight, mapBottom));
         Gizmos.DrawLine(new Vector2(mapRight, mapBottom), new Vector2(mapLeft, mapBottom));
         Gizmos.DrawLine(new Vector2(mapLeft, mapBottom), new Vector2(mapLeft, mapTop));
+    }
+
+    public void DeleteMonsters() {
+        foreach (var mob in monstersSpawned)
+        {
+            Destroy(mob, 1f);
+            monsterCounter -= 1f;
+        }
     }
 }

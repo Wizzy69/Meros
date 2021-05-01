@@ -31,7 +31,8 @@ public class Chest : MonoBehaviour
                 break;
         }
 
-        money = Random.Range(minMoney, maxMoney);
+
+        money = Mathf.RoundToInt(Random.Range(minMoney, maxMoney));
         boxCollider = GetComponent<BoxCollider2D>();
 
 
@@ -51,6 +52,8 @@ public class Chest : MonoBehaviour
                     }
                 });
                 this.GetComponent<BoxCollider2D>().isTrigger = false;
+                if (GetComponent<Achievement>() != null)
+                    this.GetComponent<Achievement>().TriggerAchievement();
                 SystemVariables.playerData.money += money;
                 opened = true;
                 inRange = false;
@@ -71,6 +74,14 @@ public class Chest : MonoBehaviour
                     }
             });
             inRange = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision) {
+        if (opened) return;
+        if (collision.name == "Player")
+        {
+            inRange = false;
         }
     }
 

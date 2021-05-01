@@ -2,20 +2,18 @@
 
 public class Achievement : AchievementSystem
 {
-	public string AchievementName;
+    public string AchievementName;
 
-	public Sprite AchievementImageSprite;
+    public Sprite AchievementImageSprite;
 
-	public AchievementType achievementType;
+    public AchievementType achievementType;
 
-	public void TriggerAchievement()
-	{
-		Trigger(AchievementName, AchievementImageSprite);
-	}
+    public void TriggerAchievement() {
+        Trigger(AchievementName, AchievementImageSprite);
+    }
 
-	private void OnTriggerEnter2D(Collider2D collision)
-	{
-		if (collision.name == "Player" && achievementType == AchievementType.CollideWithObject)
-			TriggerAchievement();
-	}
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.name == "Player" && achievementType == AchievementType.CollideWithObject)
+            TriggerAchievement();
+    }
 }

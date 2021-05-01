@@ -31,8 +31,9 @@ public class PlayerCanvas_EscMenu_Buttons : MonoBehaviour
 	public void SettingsClick(Camera Start)
 	{
 		Start.gameObject.SetActive(true);
-		Camera.main.gameObject.SetActive(false);
 		gameObject.SetActive(false);
+		//Camera.main.gameObject.SetActive(false);
+		
 	}
 
 	public void SaveExitClick(Transform playerPosition)

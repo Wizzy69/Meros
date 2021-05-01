@@ -125,10 +125,10 @@ MonoBehaviour:
   monsterHP: 15
   movementSpeedDefault: 1.5
   movementSpeedToPlayer: 2
+  spawner: {fileID: 0}
   player: {fileID: 0}
   rb: {fileID: 0}
   renderer: {fileID: 0}
-  spawner: {fileID: 0}
   LookToTarget: 1
 --- !u!61 &4883123250534832324
 BoxCollider2D:

@@ -2,32 +2,30 @@
 
 public class Eye : Monster
 {
-	#region Class Properties
+    #region Class Properties
 
-	[Header("Eye")] [Space(10f)]
+    [Header("Eye")]
+    [Space(10f)]
 
-	#endregion
+    #endregion
 
-	public bool LookToTarget;
+    public bool LookToTarget;
 
-	public override void TakeDamage(float Damage)
-	{
-		base.TakeDamage(Damage);
-	}
+    public override void TakeDamage(float Damage) {
+        base.TakeDamage(Damage);
+    }
 
-	public void FixedUpdate()
-	{
-		DefaultMovementToPlayer(LookToTarget);
-	}
+    public void FixedUpdate() {
+        DefaultMovementToPlayer(LookToTarget);
+    }
 
-	private void OnTriggerEnter2D(Collider2D collision)
-	{
-		if (collision.name == "Player")
-		{
-			collision.GetComponent<PlayerMovement>().TakeDamage(attackDamage);
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.name == "Player")
+        {
+            collision.GetComponent<PlayerMovement>().TakeDamage(attackDamage);
 
-			Vector2 newPos = NewPosition(attackRange);
-			transform.position = newPos;
-		}
-	}
+            Vector2 newPos = NewPosition(attackRange);
+            transform.position = newPos;
+        }
+    }
 }

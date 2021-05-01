@@ -67,7 +67,8 @@ public class PlayerMovement : MonoBehaviour
         damagePotion.damageSlider.gameObject.SetActive(false);
         healPotion.healSlider.gameObject.SetActive(false);
 
-        hpBar.value = SystemVariables.playerData.HP;
+        //hpBar.value = SystemVariables.playerData.HP;
+        hpBar.value = hpBar.maxValue;
         transform.position = new Vector3(SystemVariables.playerData.X, SystemVariables.playerData.Y,
             SystemVariables.playerData.Z);
 
@@ -247,14 +248,7 @@ public class PlayerMovement : MonoBehaviour
             UsePotion(PotionType.HEAL);
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (enterShop || ExitShop || EnterBoss)
-            {
-                interraction.GetComponent<Teleport>().TeleportPlayer(GetComponent<Transform>());
-                canMove = false;
-                if (EnterBoss)
-                    inBoss01 = true;
-            }
-            else if (talkToShop)
+            if (talkToShop)
             {
                 ShopMenu.gameObject.SetActive(true);
                 canMove = false;
@@ -303,7 +297,12 @@ public class PlayerMovement : MonoBehaviour
     public void KillPlayerMob() {
         hpBar.value = 100;
         SystemVariables.playerData.money -= 5;
-        transform.position = new Vector3(-19.45f, -26.58f, 0f);
+
+        //Debug.LogError(SystemVariables.playerData.ZoneName);
+        if (SystemVariables.playerData.ZoneName == "MapZone1")
+            transform.position = new Vector3(-19.45f, -26.58f, 0f);
+        if (SystemVariables.playerData.ZoneName == "MapZone2")
+            transform.position = new Vector3(38.9f, -23.5f, 0f);
     }
 
     public void KillPlayerAtBoss01() {
